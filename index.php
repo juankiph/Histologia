@@ -14,6 +14,9 @@ and open the template in the editor.
                 background: black;
                 background-image: url(img/image1.jpg);
             }
+            jumbotron{
+                background-color: #23527c;
+            }
         </style>
     </head>
     <body>
