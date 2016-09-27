@@ -13,32 +13,19 @@ $nombre = $_SESSION['Nombre'];
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">HISTOLOGIA</a>
+            <a class="active navbar-brand" href="#">HISTOLOGIA</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><?php echo $nombre;?></a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ESTUDIEMOS <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">TEMARIO</a></li>
-                <li><a href="#">PROFESOR PORTATIL</a></li>
-                <li><a href="#">AYUDA</a></li>
-              </ul>
-            </li>
-            <li><a href="#contact"></a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACTIVIDADES <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">QUIZ</a></li>
-                <li><a href="#">REVERSO</a></li>
-                <li><a href="#">WHOISWHO</a></li>
-                <li><a href="#">OVEJA-PAREJA</a></li>
-                <li><a href="#">ADIVINA</a></li>
-              </ul>
-            </li>
+            <li class="active"><a href="#">HOME</a></li>
+            <li><a href="#" style="margin-left: 5px;">QUIZ</a></li>
+            <li><a href="#" style="margin-left: 5px;">REVERSO</a></li>
+            <li><a href="#" style="margin-left: 5px;">WHOISWHO?</a></li>
+            <li><a href="#" style="margin-left: 5px;">OVEJA-PAREJA</a></li>
+            <li><a href="#" style="margin-left: 5px;">ADIVINA</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#"><?php echo $nombre;?></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
