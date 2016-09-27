@@ -50,6 +50,7 @@ and open the template in the editor.
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script>
+        
         function chequeaPass(){
             var _usuario_nombre = $('#usuario_nombre').val();
             var _usuario_clave = $('#usuario_clave').val();
