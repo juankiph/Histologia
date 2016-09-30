@@ -21,8 +21,7 @@ $mysqli = conectaBBDD();
              $r = $resultado_consulta -> fetch_array();
              $DNI = $r['DNI'];
              $Password = $r['Password'];
-             if($usuario_clave = $Password){
-                 
+             if($usuario_clave == $Password){                 
                  //inicializo la sesion
                  session_start();
                  //guardo los datos del usuario que ha hecho el login correcto
@@ -39,6 +38,6 @@ $mysqli = conectaBBDD();
          else{
              require 'mensaje_error.php';
          }
+         
 
 ?>
-

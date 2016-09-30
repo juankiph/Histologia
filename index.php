@@ -9,6 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title>Prueba de PHP</title>
         <link rel="Stylesheet" href="css/bootstrap.min.css">
+        <link rel="Stylesheet" href="js/bootstrap.min.js">
         <style>
             body{
                 background: black;
@@ -49,8 +50,7 @@ and open the template in the editor.
     </body>
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script>
-        
+    <script>        
         function chequeaPass(){
             var _usuario_nombre = $('#usuario_nombre').val();
             var _usuario_clave = $('#usuario_clave').val();
