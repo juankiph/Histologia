@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -19,23 +13,16 @@ and open the template in the editor.
     <body>
         <div class="container" id="centro">
             <div class="row">
-                <div class="col-md-12"><h2 class="text-center">EJEMPLO DE INICIO DE SESION EN PHP</h2></div>
+                <div class="col-md-12"><h1 class="text-center" >ADIVINA!</h1></div>
             </div>
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     
-                    <div 
-                    <!--<form action="index2.php" method="post">-->
-                        <br>
-                        <input id="usuario_nombre" class="form-control" type="text" placeholder="DNI">
-                        <br>
-                        <br>
-                        <input id="usuario_clave" class="form-control"type="password" placeholder="PW">
-                        <br>
-                        <br>
-                        <button class="btn btn-success btn-block" onclick="chequeaPass();"> ENTRAR </button>
-                    <!--</form>-->
+                    <div>
+                    
+                       
+                    
                 </div>
                 <div class="col-md-4"></div>
             </div>

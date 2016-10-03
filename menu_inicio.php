@@ -42,6 +42,45 @@ $nombre = $_SESSION['Nombre'];
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </nav>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="btn btn-block text-center" style="background-color: #122b40; color: #fff; font-size: 48px;" onclick="cargQuiz()">QUIZ</div>
+<br>
+<br>
+<div class="btn btn-block text-center" style="background-color: #245269; color: #fff; font-size: 48px;" onclick="cargReverso()">REVERSO</div>
+<br>
+<br>
+<div class="btn btn-block text-center" style="background-color: #286090; color: #fff; font-size: 48px;" onclick="cargWho()">WHO IS WHO?</div>
+<br>
+<br>
+<div class="btn btn-block text-center" style="background-color: #1b6d85; color: #fff; font-size: 48px;" onclick="cargOveja()">OVEJA-PAREJA</div>
+<br>
+<br>
+<div class="btn btn-block text-center" style="background-color: #31b0d5; color: #fff; font-size: 48px;" onclick="cargAdivina()">ADIVINA</div>
 
-
+<script>
+        function cargQuiz(){
+            $('#centro').load("quiz.php");
+        }
+        function cargReverso(){
+            $('#centro').load("reverso.php");
+        }
+        function cargWho(){
+            $('#centro').load("who.php");
+        }
+        function cargOveja(){
+            $('#centro').load("oveja.php");
+        }
+        function cargadivina(){
+            $('#centro').load("adivina.php");
+        }
+</script>

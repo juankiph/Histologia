@@ -7,7 +7,7 @@ $mysqli = conectaBBDD();
          $usuario_nombre = $_POST['usuario_nombre'];
          $usuario_clave = $_POST['usuario_clave'];
 
-         echo $usuario_nombre;
+         
          
          //hago la consulta a la bbdd
          $resultado_consulta = $mysqli ->query("SELECT * FROM usuario where DNI = '$usuario_nombre' ");
@@ -21,10 +21,11 @@ $mysqli = conectaBBDD();
              $r = $resultado_consulta -> fetch_array();
              $DNI = $r['DNI'];
              $Password = $r['Password'];
-             if($usuario_clave = $Password){
+             if($usuario_clave == $Password){
                  
                  //inicializo la sesion
                  session_start();
+                 echo $usuario_nombre;
                  //guardo los datos del usuario que ha hecho el login correcto
                  $_SESSION['DNI'] = $DNI;
                  $_SESSION['Nombre'] = $r['Nombre'];
