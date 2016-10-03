@@ -25,14 +25,16 @@ $nombre = $_SESSION['Nombre'];
             <li><a href="#" style="margin-left: 5px;">ADIVINA</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-              <img src="imagenes/<?php echo $_SESSION['DNI'];?>.jpg" class="img-circle" style="width: 40px;"
-              <li class="active"><a href="#"><?php echo $nombre;?></a></li>
+              <li><a href="#"><?php echo $nombre;?></a></li>
               
           </ul>
         </div><!--/.nav-collapse -->
       </div>
 </nav>
-<br>
+<div style="position: absolute; top: 0px; right: 300px; z-index: 3000;">
+    <img src="imagenes/<?php echo $_SESSION['DNI'];?>.jpg" class="img-circle" style="width: 80px;">
+</div>
+<br>S
 <br>
 <br>
 <br>
@@ -83,25 +85,12 @@ $consulta_usuarios = $mysqli -> query ("select * from usuario");
 //saco el numero de usuarios que hay en la bbdd
 $num_usuarios = $consulta_usuarios -> num_rows;
 
-for($i = 0; $i < $numero_usuarios; $i++){
+for($i = 0; $i < $num_usuarios; $i++){
     $r = $consulta_usuarios -> fetch_array();
     $usuarios[$i][0] = $r['DNI'];
     $usuarios[$i][1] = $r['Nombre'];
     $usuarios[$i][2] = $r['Apellido'];
     $usuarios[$i][3] = $r['Email'];
 }
-
 //ahora voy a usar los datos en un ejemplo
 ?>
-<table class="table table-condensed">
-    <?php 
-    for($i = 0; $i < $numero_usuarios; $i++){
-        echo '<tr>';
-        echo '<td>'.$usuarios[$i][1].'<td>';
-        echo '<td>'.$usuarios[$i][2].'<td>';
-        echo '<td>'.$usuarios[$i][3].'<td>';
-        echo '<td><img src="imagenes/'.$usuarios[$i][0].'.jpg"><td>';
-}
-    ?>
-    
-</table>
