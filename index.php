@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-        <html>
+<html>
     <head>
         <meta charset="UTF-8">
         <title>UFUber</title>
@@ -44,14 +44,14 @@ session_start();
                                         <!--<form>-->
                                             <div class="form-group">
                                                 <label>Usuario</label>
-                                                <input class="form-control" name="username" id="usuario_nombre" type="text">
+                                                <input class="form-control" name="username" id="usuario_nombre" type="text" onkeypress="validar(event)">
                                             </div>
                                             <div class="form-group">
                                                 <label>Contraseña</label>
-                                                <input class="form-control" name="password" id="usuario_clave" type="password"><br>
+                                                <input class="form-control" name="password" id="usuario_clave" type="password" onkeypress="validar(event)"><br>
                                                 <input type="checkbox" name="remember" />Remember me <br>
                                             </div>
-                                            <button class="btn btn-success btn-sm" onclick="chequeaPassword();">Login</button>
+                                        <button class="btn btn-success btn-sm" onclick="chequeaPassword();">Login</button>
                                         <!--</form>-->
                                     </div>
                                 </div>
@@ -82,5 +82,11 @@ session_start();
             
         }
     </script>
+    <script type="text/javascript">
+        function validar(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            if (tecla==13) chequeaPassword();
+}
+</script>
 </html>
 

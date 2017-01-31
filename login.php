@@ -4,8 +4,7 @@ $mysqli = conectaBBDD();
 
 //leo los parametros que me pasa el index.php
 $usuario_nombre = $_POST['usuario_nombre'];
-$usuario_clave = md5(md5($_POST ['usuario_clave']));
-$remember = isset($_POST['remember']) ? TRUE : FALSE;
+$usuario_clave = $_POST ['usuario_clave'];
 
 //Hago la consulta a la BBDD
 $resultado_consulta = $mysqli ->query ("SELECT * FROM usuario_pasajero WHERE nombre = '$usuario_nombre' ");

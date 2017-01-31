@@ -1,15 +1,9 @@
 <?php
 session_start();
 //Ahora session_start continua la sesion que creamos el login.php
-$_SESSION['nombre']=$_REQUEST['usuario_nombre'];
-$_SESSION['password']=$_REQUEST['usuario_clave'];
 //leo lo que guarde en la variable nombre
 $nombreDelUsuario = $_SESSION['nombre'];
 $contrasenaDelUsuario = $_SESSION['password'];
-
-if (!isset($_SESSION)) {
-    session_start();
-}
 ?>
 <html>
     <head>
@@ -37,14 +31,14 @@ if (!isset($_SESSION)) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span> 
                     </button>
-                    <a class="navbar-brand" href="index.php">LVNP</a>
+                    <a class="navbar-brand" href="sesionIniciada.php">UFUber</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Juegos</a></li>
-                        <li><a href="#">Reglas</a></li> 
-                        <li><a href="#">Clasificacón</a></li> 
+                        <li><a href="registroPasajero.php">Registro Pasajeros</a></li>
+                        <li><a href="registroConductor.php">Registro Conductor</a></li> 
+                        <li><a href="registroCoche.php">Registro Coches</a></li> 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="./">Cerrar sesión <span class="sr-only"></span></a></li>
@@ -53,10 +47,10 @@ if (!isset($_SESSION)) {
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"> <span class="glyphicon glyphicon-user"></span>
                                 <?php echo $nombreDelUsuario;?>
                             </a>
-                            <div class="dropdown-menu" id="formLogin">
+<!--                            <div class="dropdown-menu" id="formLogin">
                                 <div class="row">
                                     <div class="container-fluid">
-                                        <!--<form>-->
+                                        <form>
                                             <div class="form-group">
                                                 <label>Usuario</label>
                                                 <input class="form-control" name="username" id="usuario_nombre" type="text">
@@ -66,10 +60,10 @@ if (!isset($_SESSION)) {
                                                 <input class="form-control" name="password" id="usuario_clave" type="password"><br>
                                             </div>
                                             <button class="btn btn-success btn-sm" onclick="chequeaPassword();">Login</button>
-                                        <!--</form>-->
+                                        </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </li>
 <!--        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->

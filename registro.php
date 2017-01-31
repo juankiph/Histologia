@@ -55,7 +55,7 @@ if (mysqli_query($conn, $sql)) {
         <div class="row text-center">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <a href="index.php"><input type="button" class="btn btn-success btn-block" value="Volver"></a>
+                    <a href="sesionIniciada.php"><input type="button" class="btn btn-success btn-block" value="Volver"></a>
                 </div>
                 <div class="col-md-2"></div>
             </div>

@@ -1,5 +1,5 @@
 <?php
- 
+ session_start();
 include 'conexion.php';
  error_reporting(0);
 //  $id = $_POST['id'];
@@ -55,7 +55,7 @@ if (mysqli_query($conn, $sql)) {
         <div class="row text-center">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <a href="index.php"><input type="button" class="btn btn-success btn-block" value="Volver"></a>
+                    <a href="sesionIniciada.php"><input type="button" class="btn btn-success btn-block" value="Volver"></a>
                 </div>
                 <div class="col-md-4"></div>
             </div>
