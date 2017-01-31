@@ -3,13 +3,13 @@
 include 'conexion.php';
  error_reporting(0);
 //  $id = $_POST['id'];
-  $usuario = $_POST['usuario'];
-  $nombre = $_POST['nombre'];
-  $apellido = $_POST['apellido'];
-  $idplaystation = $_POST['idplaystation'];
-  $edad = $_POST['edad'];
-  $correo = $_POST['correo'];
-  $password = $_POST['password'];
+  $marca = $_POST['marca'];
+  $modelo = $_POST['modelo'];
+  $color = $_POST['color'];
+  $antiguedad = $_POST['antiguedad'];
+  $capacidad = $_POST['capacidad'];
+  $foto = $_POST['foto'];
+ 
   
   
 //Da fallo si encriptamos la contraseña 0, así que hemos decidido quitar el encriptado de las contraseñas  
@@ -23,8 +23,8 @@ if(!$_POST['submit']){
 
 else {
  //Consulta sql para que me de los datos de la tabla
-$sql = "INSERT INTO usuario (usuario,nombre,apellido,idplaystation,edad,correo,password)
-VALUES ('$usuario','$nombre', '$apellido', '$idplaystation', '$edad', '$correo', '$password')";
+$sql = "INSERT INTO coche (marca,modelo,color,antiguedad,foto,capacidad)
+VALUES ('$marca','$modelo', '$color', '$antiguedad', '$capacidad', '$foto')";
 
 if (mysqli_query($conn, $sql)) {
     echo "<h1><center>Usuario añadido satisfactoriamente</center></h1>";
@@ -53,11 +53,11 @@ if (mysqli_query($conn, $sql)) {
 <body>
     <div class="container" id="centro">
         <div class="row text-center">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
                     <a href="index.php"><input type="button" class="btn btn-success btn-block" value="Volver"></a>
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-4"></div>
             </div>
             <div class="row text-center">
                 <div class="col-md-2"></div>
@@ -75,15 +75,14 @@ if (mysqli_query($conn, $sql)) {
              <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <form action="registro.php" method="POST">
-                        Usuario: <input type="text" class="form-control" name="usuario" value="" required><br><br>
-                        Nombre: <input type="text" class="form-control" name="nombre" value="" required><br><br>
-			Apellido: <input type="text" class="form-control" name="apellido" value="" required><br><br>
-                        IDPlaystation: <input type="text" class="form-control" name="idplaystation" value="" required><br><br>
-                        Edad: <input type="number" class="form-control" name="edad" value="" required><br><br>
-                        Correo: <input type="email" class="form-control" name="correo" value="" required><br><br>
-                        Contraseña: <input type="password" class="form-control" name="password" value="" required><br><br>
-<!--                        Tipo: <input type="text" class="form-control" name="permiso" value="" required><br>-->
+                    <form action="registroCoche.php" method="POST">
+                        Marca: <input type="text" class="form-control" name="marca" value="" required><br><br>
+                        Modelo: <input type="text" class="form-control" name="modelo" value="" required><br><br>
+			Color: <input type="text" class="form-control" name="color" value="" required><br><br>
+                        Antiguedad: <input type="text" class="form-control" name="antiguedad" value="" required><br><br>
+                        Capacidad: <input type="number" class="form-control" name="capacidad" value="" required><br><br>
+                        foto: <input type="file" class="form-control" name="foto" value="" required><br><br>
+                        
 	<br>
         <input type="submit" name="submit" value="Registrarse" class="btn btn-success btn-block"/></center>
 </form>                   

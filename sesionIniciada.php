@@ -1,10 +1,15 @@
 <?php
+session_start();
 //Ahora session_start continua la sesion que creamos el login.php
-if (!isset($_SESSION))  {
+$_SESSION['nombre']=$_REQUEST['usuario_nombre'];
+$_SESSION['password']=$_REQUEST['usuario_clave'];
+//leo lo que guarde en la variable nombre
+$nombreDelUsuario = $_SESSION['nombre'];
+$contrasenaDelUsuario = $_SESSION['password'];
+
+if (!isset($_SESSION)) {
     session_start();
 }
-//leo lo que guarde en la variable nombre
-$nombreDelUsuario = $_SESSION['usuario'];
 ?>
 <html>
     <head>
@@ -72,6 +77,11 @@ $nombreDelUsuario = $_SESSION['usuario'];
                 </div>
             </div>
         </nav>
+        <?php
+            echo "Nombre de usuario recuperado de la variable de sesion:" .$_SESSION['nombre'];
+            "<br>";
+            echo "Clave recuperada de la variable de sesión:" .$_SESSION['password'];
+        ?>
     </body>
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
