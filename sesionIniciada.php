@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+    
+}
 //Ahora session_start continua la sesion que creamos el login.php
 //leo lo que guarde en la variable nombre
 $nombreDelUsuario = $_SESSION['nombre'];

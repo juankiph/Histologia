@@ -1,5 +1,8 @@
 <?php
- session_start();
+ if (!isset($_SESSION)) {
+    session_start();
+    
+}
 include 'conexion.php';
  error_reporting(0);
 //  $id = $_POST['id'];
