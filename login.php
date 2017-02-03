@@ -14,6 +14,7 @@ $numero_dnis = $resultado_consulta -> num_rows;
 //pongo con un if; si no, se teiene que tratar todo el resultado de la query
 //con un bucle for por ejemplo
 if($numero_dnis > 0){
+     
             //la query es valida y me ha devuelto por lo menos un dni
             //entonces mostrare el menu normal
             //voy a leer el campo DNI y el campo pasword de la bbdd
@@ -25,15 +26,20 @@ if($numero_dnis > 0){
                 
             
             //Inicializo la sesion
-            session_start();
             //Guardo los datos del usuario que han hecho correcto
             $_SESSION['nombre'] = $usuario;
             $_SESSION['password'] = $password;
             
+            setcookie('nombre', $usuario, time()+60*60*7);
+            setcookie('password', $password, time()+60*60*7);
+            
+            $_COOKIE['nombre'] = $usuario;
+            $_COOKIE['password'] = $password;
+            
 //            $_SESSION['email'] = $r ['email'];
             
-            require './sesionIniciada.php';
-            require './cookie.php';
+        require 'sesionIniciada.php';
+            
         }       
         
         }

@@ -1,12 +1,21 @@
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-    
-}
+        
+if (!isset($_SESSION)) {session_start();}
+        $nombreDelUsuario = $_SESSION['nombre'];
+         if (isset($_COOKIE['nombre']) and isset($_COOKIE['password'])) {
+            $nombre = $_COOKIE['nombre'];
+            $password = $_COOKIE['password']; 
+          
+            
+//            echo  "<script>
+//                document.getElementById('usuario_nombre').value = '$nombre';
+//                 document.getElementById('usuario_clave').value = '$password';
+//                document.getElementById('remember').checked = true;
+//                </script>";
+                    
+        }
 //Ahora session_start continua la sesion que creamos el login.php
 //leo lo que guarde en la variable nombre
-$nombreDelUsuario = $_SESSION['nombre'];
-$contrasenaDelUsuario = $_SESSION['password'];
 ?>
 <html>
     <head>
@@ -38,17 +47,15 @@ $contrasenaDelUsuario = $_SESSION['password'];
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="registroPasajero.php">Registro Pasajeros</a></li>
                         <li><a href="registroConductor.php">Registro Conductor</a></li> 
                         <li><a href="registroCoche.php">Registro Coches</a></li> 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="./">Cerrar sesión <span class="sr-only"></span></a></li>
+                        <li><a href="logout.php">Cerrar sesión <span class="sr-only"></span></a></li>
 <!--                        <li><a href="registro.php"><span class="glyphicon glyphicon-log-in"></span> Registrate</a></li>-->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"> <span class="glyphicon glyphicon-user"></span>
-                                <?php echo $nombreDelUsuario;?>
+                                <?php echo $nombre;?>
                             </a>
 <!--                            <div class="dropdown-menu" id="formLogin">
                                 <div class="row">
@@ -74,11 +81,6 @@ $contrasenaDelUsuario = $_SESSION['password'];
                 </div>
             </div>
         </nav>
-        <?php
-            echo "Nombre de usuario recuperado de la variable de sesion:" .$_SESSION['nombre'];
-            "<br>";
-            echo "Clave recuperada de la variable de sesión:" .$_SESSION['password'];
-        ?>
     </body>
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

@@ -58,7 +58,7 @@ if (mysqli_query($conn, $sql)) {
         <div class="row text-center">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <a href="sesionIniciada.php"><input type="button" class="btn btn-success btn-block" value="Volver"></a>
+                    <a href="sesionIniciada.php"><input type="button" class="btn btn-lg btn-primary btn-block" value="Volver"></a>
                 </div>
                 <div class="col-md-4"></div>
             </div>
@@ -87,7 +87,7 @@ if (mysqli_query($conn, $sql)) {
                         foto: <input type="file" class="form-control" name="foto" value="" required><br><br>
                         
 	<br>
-        <input type="submit" name="submit" value="Registrarse" class="btn btn-success btn-block"/></center>
+        <input type="submit" name="submit" value="Registrarse" class="btn btn-lg btn-primary btn-block"/></center>
 </form>                   
                 </div>
                 <div class="col-md-4"></div>

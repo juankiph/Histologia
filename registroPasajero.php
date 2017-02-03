@@ -57,11 +57,13 @@ if (mysqli_query($conn, $sql)) {
 <body>
     <div class="container" id="centro">
         <div class="row text-center">
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <a href="sesionIniciada.php"><input type="button" class="btn btn-success btn-block" value="Volver"></a>
+                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <br>
+                    <br>
+<!--                    <a href="index.php"><input type="button" class="btn btn-success btn-block" value="Volver"></a>-->
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-10"></div>
             </div>
             <div class="row text-center">
                 <div class="col-md-2"></div>
@@ -89,7 +91,7 @@ if (mysqli_query($conn, $sql)) {
                         Contraseña: <input type="password" class="form-control" name="password" value="" required><br><br>
 <!--                        Tipo: <input type="text" class="form-control" name="permiso" value="" required><br>-->
 	<br>
-        <input type="submit" name="submit" value="Registrarse" class="btn btn-success btn-block"/></center>
+        <input type="submit" name="submit" value="Registrarse" class="btn btn-lg btn-primary btn-block"/></center>
 </form>                   
                 </div>
                 <div class="col-md-4"></div>

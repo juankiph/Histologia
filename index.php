@@ -1,9 +1,24 @@
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-    
-}
-?>
+        
+//if(isset($_COOKIE['nombre']) and isset($_COOKIE['password'])){
+//    require './login.php';
+//}
+if (!isset($_SESSION)) {session_start();}
+        
+         if (isset($_COOKIE['nombre']) and isset($_COOKIE['password'])) {
+             require './sesionIniciada.php';
+           
+          
+            
+//            echo  "<script>
+//                document.getElementById('usuario_nombre').value = '$nombre';
+//                 document.getElementById('usuario_clave').value = '$password';
+//                document.getElementById('remember').checked = true;
+//                </script>";
+                    
+        }
+        
+        ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -47,12 +62,17 @@ http://www.bootstrapzen.com/item/135/simple-login-form-logo/
 	}
 
 body {
-	background: url(http://i.imgur.com/GHr12sH.jpg) no-repeat center center fixed;
+    background: #ffffff no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
+
+#registro {
+    margin-top: 2%;
+}
+
 
 .login-form {
 	margin-top: 60px;
@@ -89,11 +109,12 @@ form[role=login] {
 		color: #fff;
 	}
 
+
         </style>
     </head>
     <body>
         <div id="centro"> 
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+<!--        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -105,10 +126,9 @@ form[role=login] {
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Viajes Disponibles</a></li>
-                        <li><a href="#">Bla Bla Bla</a></li> 
-                        <li><a href="#">Bla Bla Bla</a></li> 
+                        <li><a href="registroPasajero.php">Registro Pasajeros</a></li>
+                        <li><a href="registroConductor.php">Registro Conductor</a></li> 
+                        <li><a href="registroCoche.php">Registro Coches</a></li> 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="registroPasajero.php"><span class="glyphicon glyphicon-log-in"></span> Registrate</a></li>
@@ -118,12 +138,12 @@ form[role=login] {
                             </a>
                             
                         </li>
-<!--        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav>-->
             <div class="container">
   
   <div class="row" id="pwd-container">
@@ -137,17 +157,24 @@ form[role=login] {
           <input type="password" class="form-control input-lg" id="usuario_clave" placeholder="Contraseña" required="" />
           
           
-          <div class="pwstrength_viewport_progress"></div>
+          <div class="pwstrength_viewport_progress">
+              <br>
+              <label><a> <input type="checkbox" id="remember"/>  Recuerdame </a></label>
+          </div>
           
           
           <button type="submit" name="go" class="btn btn-lg btn-primary btn-block" onclick="chequeaPassword();">Login</button>
           <div>
-            <a href="#">Create account</a> or <a href="#">reset password</a>
+              
           </div>
+          <div id="registro">
+          <label> <a href="registroPasajero.php">Crearse una cuenta</a> </label>
+          </div>
+          
           
         
         <div class="form-links">
-          <a href="#">www.website.com</a>
+          <a href="#"></a>
         </div>
       </section>  
       </div>
@@ -177,11 +204,5 @@ form[role=login] {
             
         }
     </script>
-    <script type="text/javascript">
-        function validar(e) {
-            tecla = (document.all) ? e.keyCode : e.which;
-            if (tecla==13) chequeaPassword();
-}
-</script>
 </html>
 
