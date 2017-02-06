@@ -5,6 +5,9 @@ $mysqli = conectaBBDD();
 //leo los parametros que me pasa el index.php
 $usuario_nombre = $_POST['usuario_nombre'];
 $usuario_clave = $_POST ['usuario_clave'];
+session_start();
+$_SESSION['username'] = $_POST['usuario_nombre'];
+
 
 //Hago la consulta a la BBDD
 $resultado_consulta = $mysqli ->query ("SELECT * FROM usuario_pasajero WHERE nombre = '$usuario_nombre' ");
@@ -30,15 +33,21 @@ if($numero_dnis > 0){
             $_SESSION['nombre'] = $usuario;
             $_SESSION['password'] = $password;
             
+            
             setcookie('nombre', $usuario, time()+60*60*7);
             setcookie('password', $password, time()+60*60*7);
             
             $_COOKIE['nombre'] = $usuario;
             $_COOKIE['password'] = $password;
             
+//            
 //            $_SESSION['email'] = $r ['email'];
-            
-        require 'sesionIniciada.php';
+            if(empty($_SESSION['username'])) { // Recuerda usar corchetes.
+        header('Location: pruebaIndex.html');
+    }else if(!empty($_SESSION['username'])){
+            header('Location: sesionIniciada.php');
+            require 'sesionIniciada.php';
+    }
             
         }       
         

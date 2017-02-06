@@ -1,32 +1,37 @@
 <?php
-        
-if (!isset($_SESSION)) {session_start();}
-        $nombreDelUsuario = $_SESSION['nombre'];
-         if (isset($_COOKIE['nombre']) and isset($_COOKIE['password'])) {
-            $nombre = $_COOKIE['nombre'];
-            $password = $_COOKIE['password']; 
-          
-            
+if (isset($_SESSION)) {
+    session_start();
+    $_SESSION['nombre'] = $usuario;
+    $_SESSION['password'] = $password;
+} else {
+    session_start();
+    $_SESSION['nombre'] = $usuario;
+    $_SESSION['password'] = $password;
+}
+if (isset($_COOKIE['nombre']) and isset($_COOKIE['password'])) {
+    $nombre = $_COOKIE['nombre'];
+    $password = $_COOKIE['password'];
+
+
 //            echo  "<script>
 //                document.getElementById('usuario_nombre').value = '$nombre';
 //                 document.getElementById('usuario_clave').value = '$password';
 //                document.getElementById('remember').checked = true;
 //                </script>";
-                    
-        }
+}
 //Ahora session_start continua la sesion que creamos el login.php
 //leo lo que guarde en la variable nombre
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>FlashCard</title>
+        <title>UFUber</title>
         <link rel ="stylesheet" href="css/bootstrap.min.css">
 
         <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
         <title></title>
         <style>
-#formLogin{padding: 15px; min-width:300px;}
+            #formLogin{padding: 15px; min-width:300px;}
         </style>
     </head>
     <body>
@@ -34,7 +39,7 @@ if (!isset($_SESSION)) {session_start();}
         <br>
         <br>
         <br>
-        <h1>SESION INICIADA</h1>
+        <h1>SESION INICIADA <?php echo $nombre; ?> <br><br> Contraseña <?php echo $password ?> <br> Session<?php echo $nombre ?></h1>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -55,25 +60,25 @@ if (!isset($_SESSION)) {session_start();}
 <!--                        <li><a href="registro.php"><span class="glyphicon glyphicon-log-in"></span> Registrate</a></li>-->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"> <span class="glyphicon glyphicon-user"></span>
-                                <?php echo $nombre;?>
+                                <?php echo $nombre; ?>
                             </a>
-<!--                            <div class="dropdown-menu" id="formLogin">
-                                <div class="row">
-                                    <div class="container-fluid">
-                                        <form>
-                                            <div class="form-group">
-                                                <label>Usuario</label>
-                                                <input class="form-control" name="username" id="usuario_nombre" type="text">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Contraseña</label>
-                                                <input class="form-control" name="password" id="usuario_clave" type="password"><br>
-                                            </div>
-                                            <button class="btn btn-success btn-sm" onclick="chequeaPassword();">Login</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>-->
+                            <!--                            <div class="dropdown-menu" id="formLogin">
+                                                            <div class="row">
+                                                                <div class="container-fluid">
+                                                                    <form>
+                                                                        <div class="form-group">
+                                                                            <label>Usuario</label>
+                                                                            <input class="form-control" name="username" id="usuario_nombre" type="text">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label>Contraseña</label>
+                                                                            <input class="form-control" name="password" id="usuario_clave" type="password"><br>
+                                                                        </div>
+                                                                        <button class="btn btn-success btn-sm" onclick="chequeaPassword();">Login</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>-->
                         </li>
 <!--        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->

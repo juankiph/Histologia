@@ -1,7 +1,9 @@
 <?php
 
 if (!isset($_SESSION)) {
-    session_start();}
+    session_start();
+    
+}
         
          if (isset($_COOKIE['nombre']) and isset($_COOKIE['password'])) {
              require './sesionIniciada.php';
