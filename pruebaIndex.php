@@ -3,13 +3,11 @@
 if (!isset($_SESSION)) {
     session_start();
     
-}
-        
-         if (isset($_COOKIE['nombre']) and isset($_COOKIE['password'])) {
-             require './sesionIniciada.php';
-            $nombre = $_COOKIE['nombre'];
-            $password = $_COOKIE['password']; 
-          
+}           
+            if (isset($_SESSION['nombre']) and isset($_SESSION['password'])) {
+            $nombre = $_SESSION['nombre'];
+            $password = $_SESSION['password'];
+            require './sesionIniciada.php';
             
 //            echo  "<script>
 //                document.getElementById('usuario_nombre').value = '$nombre';

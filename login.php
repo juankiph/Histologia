@@ -5,8 +5,7 @@ $mysqli = conectaBBDD();
 //leo los parametros que me pasa el index.php
 $usuario_nombre = $_POST['usuario_nombre'];
 $usuario_clave = $_POST ['usuario_clave'];
-session_start();
-$_SESSION['username'] = $_POST['usuario_nombre'];
+
 
 
 //Hago la consulta a la BBDD
@@ -26,34 +25,41 @@ if($numero_dnis > 0){
             $password = $r['password'];
           
             if($usuario_clave == $password && $usuario_nombre == $usuario){
-                
+                require ('sesionIniciada.php');
             
             //Inicializo la sesion
             //Guardo los datos del usuario que han hecho correcto
-            $_SESSION['nombre'] = $usuario;
-            $_SESSION['password'] = $password;
+            $_SESSION['usuario_nombre'] = $usuario;
+            }
+            if(isset($_SESSION['nombre'])){
+                echo "el usuario ya esta conectado";
+            }
+            
+    }else{
+                require './mensaje_error.php';
+                echo "Usuario o contraseña incorrectos";
+            }
+    ?>
             
             
-            setcookie('nombre', $usuario, time()+60*60*7);
-            setcookie('password', $password, time()+60*60*7);
+<!--//            setcookie('nombre', $usuario, time()+60*60*7);
+//            setcookie('password', $password, time()+60*60*7);
             
-            $_COOKIE['nombre'] = $usuario;
-            $_COOKIE['password'] = $password;
+//            $_COOKIE['nombre'] = $usuario;
+//            $_COOKIE['password'] = $password;
             
 //            
 //            $_SESSION['email'] = $r ['email'];
-            if(empty($_SESSION['username'])) { // Recuerda usar corchetes.
-        header('Location: pruebaIndex.html');
-    }else if(!empty($_SESSION['username'])){
-            header('Location: sesionIniciada.php');
-            require 'sesionIniciada.php';
-    }
             
-        }       
+                   
         
-        }
-        else {
-            require 'mensaje_error.php';
-            
-        }
-        ?>
+        
+        
+        
+        
+//        else {
+//            require ('mensaje_error.php');
+//            
+//        }-->
+        
+

@@ -1,4 +1,7 @@
 <?php
+$_SESSION['nombre'] = $usuario;
+$_SESSION['password'] = $password;
+session_start();
 if (isset($_SESSION)) {
     session_start();
     $_SESSION['nombre'] = $usuario;
@@ -8,9 +11,9 @@ if (isset($_SESSION)) {
     $_SESSION['nombre'] = $usuario;
     $_SESSION['password'] = $password;
 }
-if (isset($_COOKIE['nombre']) and isset($_COOKIE['password'])) {
-    $nombre = $_COOKIE['nombre'];
-    $password = $_COOKIE['password'];
+if (isset($_SESSION['nombre']) and isset($_SESSION['password'])) {
+    $nombre = $_SESSION['nombre'];
+    $password = $_SESSION['password'];
 
 
 //            echo  "<script>
@@ -31,7 +34,17 @@ if (isset($_COOKIE['nombre']) and isset($_COOKIE['password'])) {
         <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
         <title></title>
         <style>
-            #formLogin{padding: 15px; min-width:300px;}
+.caret-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    border-bottom: 4px solid;
+    
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: middle;
+}
         </style>
     </head>
     <body>
@@ -56,30 +69,18 @@ if (isset($_COOKIE['nombre']) and isset($_COOKIE['password'])) {
                         <li><a href="registroCoche.php">Registro Coches</a></li> 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="logout.php">Cerrar sesión <span class="sr-only"></span></a></li>
 <!--                        <li><a href="registro.php"><span class="glyphicon glyphicon-log-in"></span> Registrate</a></li>-->
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"> <span class="glyphicon glyphicon-user"></span>
-                                <?php echo $nombre; ?>
-                            </a>
-                            <!--                            <div class="dropdown-menu" id="formLogin">
-                                                            <div class="row">
-                                                                <div class="container-fluid">
-                                                                    <form>
-                                                                        <div class="form-group">
-                                                                            <label>Usuario</label>
-                                                                            <input class="form-control" name="username" id="usuario_nombre" type="text">
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label>Contraseña</label>
-                                                                            <input class="form-control" name="password" id="usuario_clave" type="password"><br>
-                                                                        </div>
-                                                                        <button class="btn btn-success btn-sm" onclick="chequeaPassword();">Login</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>-->
-                        </li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hector <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Perfil</a></li>
+            <li><a href="cambiarContrasena.php">Cambiar contraseña</a></li>
+<!--            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>-->
+            <li class="divider"></li>
+            <li><a href="logout.php">Cerrar sesión</a></li>
+          </ul>
+        </li>
 <!--        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
                     </ul>
@@ -87,6 +88,21 @@ if (isset($_COOKIE['nombre']) and isset($_COOKIE['password'])) {
             </div>
         </nav>
     </body>
+    <script>
+        $(function(){
+    $(".dropdown").hover(            
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            },
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+                $(this).toggleClass('open');
+                $('b', this).toggleClass("caret caret-up");                
+            });
+    });
+    </script>
     <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </html>

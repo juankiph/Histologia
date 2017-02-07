@@ -8,12 +8,6 @@ if (!isset($_SESSION)) {session_start();}
             $nombre = $_COOKIE['nombre'];
             $password = $_COOKIE['password']; 
           
-            
-            echo  "<script>
-                document.getElementById('usuario_nombre').value = '$nombre';
-                 document.getElementById('usuario_clave').value = '$password';
-                document.getElementById('remember').checked = true;
-                </script>";
                     
         }
         
@@ -125,6 +119,9 @@ form[role=login] {
         </style>
     </head>
     <body>
+        <div id="top">
+            
+        </div>
         <div id="centro"> 
 <!--        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
@@ -169,7 +166,7 @@ form[role=login] {
           <input type="password" class="form-control input-lg" id="usuario_clave" placeholder="Contraseña" required="" />
           
           
-          <div class="pwstrength_viewport_progress">
+          <div class="pwstrength_viewport_progress" id="top">
               <br>
               <label><a> <input type="checkbox" id="remember"/>  Recuerdame </a></label>
           </div>
@@ -213,6 +210,10 @@ form[role=login] {
                usuario_clave : _usuario_clave
               // usuario_tipo : _usuario_tipo
            });
+           
+           document.getElementById('usuario_nombre').value = '$nombre';
+           document.getElementById('usuario_clave').value = '$password';
+           document.getElementById('remember').checked = true;
             
         }
     </script>
