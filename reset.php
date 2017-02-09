@@ -1,7 +1,7 @@
 <?php
     $email =$_POST['email'];
 
-    //public function sendMail($email, $userId)
+    function sendMail($email, $userId)
 {
    $to = $email;
 $subject = 'Password Reset';

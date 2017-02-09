@@ -3,7 +3,7 @@
     session_start();
     
 }
-include 'conexion.php';
+include 'conexionHostinger.php';
  error_reporting(0);
 //  $id = $_POST['id'];
 //  $usuario = $_POST['usuario'];
@@ -27,7 +27,7 @@ if(!$_POST['submit']){
 
 else {
  //Consulta sql para que me de los datos de la tabla
-$sql = "INSERT INTO usuario_pasajero (nombre,apellido,email,password)
+$sql = "INSERT INTO pasajero (nombre,apellido,email,password)
 VALUES ('$nombre', '$apellido', '$email', '$password')";
 
 if (mysqli_query($conn, $sql)) {

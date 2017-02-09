@@ -3,7 +3,7 @@
     session_start();
     
 }
-include 'conexion.php';
+include 'conexionHostinger.php';
  error_reporting(0);
 //  $id = $_POST['id'];
   $marca = $_POST['marca'];
