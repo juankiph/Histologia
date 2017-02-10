@@ -1,10 +1,5 @@
 <?php
- if (!isset($_SESSION)) {
-    session_start();
-    
-}
-include 'conexionHostinger.php';
- error_reporting(0);
+include './conexionHostinger.php';
 //  $id = $_POST['id'];
 //  $usuario = $_POST['usuario'];
   $nombre = $_POST['nombre'];
@@ -32,6 +27,22 @@ VALUES ('$nombre', '$apellido', '$email', '$password')";
 
 if (mysqli_query($conn, $sql)) {
     echo "<h1><center>Usuario añadido satisfactoriamente</center></h1>";
+    $mensaje = "<html>"
+        . "Bienvenido a UFUber<br><br> Su nombre de usuario es $nombre "
+        . "<br> <br><br>"
+        . "<br><br> Un saludo, el equipo de seguridad de UFUber. "
+        . "</html>";
+//la cabecera tiene la codificación y de donde se esta enviando el correo
+$cabecera = "From: UFUber <contactoufuber@gmail.com>\r\n";
+$cabecera .="Content-Type:text/html;charset=utf-8\r\n";
+
+            
+if(mail("$email","Correo de prueba",$mensaje,$cabecera)){
+    echo "<h1><p align='center'>Correo enviado correctamente</p></h1>";
+}
+else{
+    echo "<p align='center'>Error al enviar el correo</p>";
+}
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
@@ -47,10 +58,7 @@ if (mysqli_query($conn, $sql)) {
         <link rel ="stylesheet" href="css/bootstrap.min.css">
         <link rel ="stylesheet" href="css/general.css">
         <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
-        <style>
-            
-            
-            
+        <style>  
         </style>
 </head>
 
@@ -87,18 +95,30 @@ if (mysqli_query($conn, $sql)) {
 			Apellido: <input type="text" class="form-control" name="apellido" value="" required><br><br>
 <!--                        IDPlaystation: <input type="text" class="form-control" name="idplaystation" value="" required><br><br>
                         Edad: <input type="number" class="form-control" name="edad" value="" required><br><br>-->
-                        Email: <input type="email" class="form-control" name="email" value="" required><br><br>
+                        Email: <input type="email" class="form-control" name="email" value="" id="correo_usuario" required><br><br>
                         Contraseña: <input type="password" class="form-control" name="password" value="" required><br><br>
 <!--                        Tipo: <input type="text" class="form-control" name="permiso" value="" required><br>-->
 	<br>
-        <input type="submit" name="submit" value="Registrarse" class="btn btn-lg btn-primary btn-block"/></center>
+        <input type="submit" name="submit" value="Registrarse" class="btn btn-lg btn-primary btn-block" onclick="pillarCorreo();"/></center>
 </form>                   
                 </div>
                 <div class="col-md-4"></div>
             </div>
         </div>
     </body>
-
+    
+<script>
+//function pillarCorreo(){
+//            var _correo_usuario = $('#correo_usuario').val();
+//           // var _usuario_tipo = $('#usuario_tipo').val();
+//           // console .log(_usuario_nombre);
+//           
+//           $('#centro').load("enviarCorreoRegistro.php",{
+//              correo_usuario : _correo_usuario
+//              // usuario_tipo : _usuario_tipo
+//           });
+//       }
+</script>>
 
 
 

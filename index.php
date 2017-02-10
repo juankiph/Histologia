@@ -163,7 +163,7 @@ form[role=login] {
             <img src="imagenes/logoufv.png" class="img-responsive" alt="" />
             <input name="email" placeholder="Usuario" id="usuario_nombre" required class="form-control input-lg"/>
           
-          <input type="password" class="form-control input-lg" id="usuario_clave" placeholder="Contraseña" required="" />
+            <input type="password" class="form-control input-lg" id="usuario_clave" placeholder="Contraseña"/>
           
           
           <div class="pwstrength_viewport_progress" id="top">
@@ -172,7 +172,7 @@ form[role=login] {
           </div>
           
           
-          <button type="submit" name="go" class="btn btn-lg btn-primary btn-block" onclick="chequeaPassword();">Login</button>
+            <button type="submit" name="go" class="btn btn-lg btn-primary btn-block" onclick="chequeaPassword();">Login</button>
           <div>
               
           </div>
@@ -214,7 +214,8 @@ form[role=login] {
            document.getElementById('usuario_nombre').value = '$nombre';
            document.getElementById('usuario_clave').value = '$password';
            document.getElementById('remember').checked = true;
-            
+          
+                                
         }
     </script>
 </html>

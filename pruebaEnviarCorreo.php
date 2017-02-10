@@ -19,7 +19,7 @@ function pillarCorreo(){
            // var _usuario_tipo = $('#usuario_tipo').val();
            // console .log(_usuario_nombre);
            
-           $('#centro').load("enviarCorreo.php",{
+           $('#centro').load("enviarCorreoPassword.php",{
               correo_usuario : _correo_usuario
               // usuario_tipo : _usuario_tipo
            });

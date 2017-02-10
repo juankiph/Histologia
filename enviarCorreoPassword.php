@@ -48,8 +48,8 @@ $sql = "UPDATE pasajero set password='$contrasena' where email='$correo_usuario'
 
 //El mensaje sera el cuerpo del correo, tendremos que tratarlo como un html
 $mensaje = "<html>"
-        . "Apreciado usuario:<br><br> La contraseña de su cuenta ha cambiado. "
-        . "<br>Su nueva contraseña es: $contrasena <br><br>Le sugerimos que cambie la contraseña lo antes posible."
+        . "Estimado/a Usuario<br><br> La contraseña de su cuenta se ha cambiado. "
+        . "<br>La contraseña ha sido generada automáticamente por el sistema, te recomendamos que la cambies para una mayor seguridad<br><br> Tu contraseña generada es: <br>$contrasena <br><br>Le sugerimos que cambie la contraseña lo antes posible."
         . "<br><br> Un saludo, el equipo de seguridad de UFUber. "
         . "</html>";
 //la cabecera tiene la codificación y de donde se esta enviando el correo
@@ -61,7 +61,7 @@ if(mail("$correo_usuario","Correo de prueba",$mensaje,$cabecera)){
     echo "<h1><p align='center'>Correo enviado correctamente</p></h1>";
 }
 else{
-    echo "<p align='center'>Error al enviar el mensaje</p>";
+    echo "<p align='center'>Error al enviar el correo</p>";
 }
             }else{
                 echo 'El correo no esta en la base de datos';
