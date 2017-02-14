@@ -1,8 +1,7 @@
-<?php
-	$dbhost = "localhost";
+<?php 	$dbhost = "localhost";
 	$dbuser = "root";
 	$dbpass = "root";
-	$db 	= "tfg";
+	$db 	= "ufuber";
 	
 	$conn = new mysqli ($dbhost,$dbuser,$dbpass,$db);
 	
@@ -11,6 +10,6 @@
 	if($conn->connect_error){
 		echo "La conexion no se ha podido realizar correctamente";
 	} else {
-            echo "Conectado correctamente";
+            echo "Conectado correctamente con la base de datos";
 }
 ?>

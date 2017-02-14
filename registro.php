@@ -39,7 +39,7 @@ if (mysqli_query($conn, $sql)) {
 <title>Dar de alta</title>
         <meta charset="UTF-8">
         
-        <title>ProyectoHistologia</title>
+        <title>Registro UFUber</title>
         <link rel ="stylesheet" href="css/bootstrap.min.css">
         <link rel ="stylesheet" href="css/general.css">
         <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
@@ -55,7 +55,7 @@ if (mysqli_query($conn, $sql)) {
         <div class="row text-center">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                <input type="button" class="btn btn-success btn-block" value="Volver" onclick="location.href='/TFG/index.php'"/>
+                    <a href="sesionIniciada.php"><input type="button" class="btn btn-success btn-block" value="Volver"></a>
                 </div>
                 <div class="col-md-2"></div>
             </div>
@@ -63,7 +63,7 @@ if (mysqli_query($conn, $sql)) {
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <h2 class="tipoLetraLogin">
-                           Dar de alta a los alumnos
+                           Registro Usuarios
                     </h2>
                 </div>
                 <div class="col-md-2"></div>
@@ -75,12 +75,12 @@ if (mysqli_query($conn, $sql)) {
              <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <form action="index.php" method="POST">
+                    <form action="registro.php" method="POST">
                         Usuario: <input type="text" class="form-control" name="usuario" value="" required><br><br>
                         Nombre: <input type="text" class="form-control" name="nombre" value="" required><br><br>
 			Apellido: <input type="text" class="form-control" name="apellido" value="" required><br><br>
                         IDPlaystation: <input type="text" class="form-control" name="idplaystation" value="" required><br><br>
-                        Edad: <input type="text" class="form-control" name="edad" value="" required><br><br>
+                        Edad: <input type="number" class="form-control" name="edad" value="" required><br><br>
                         Correo: <input type="email" class="form-control" name="correo" value="" required><br><br>
                         Contraseña: <input type="password" class="form-control" name="password" value="" required><br><br>
 <!--                        Tipo: <input type="text" class="form-control" name="permiso" value="" required><br>-->
