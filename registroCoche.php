@@ -1,7 +1,6 @@
 <?php
  if (!isset($_SESSION)) {
     session_start();
-    
 }
 include 'conexionHostinger.php';
  error_reporting(0);

@@ -1,9 +1,9 @@
 <?php
  if (!isset($_SESSION)) {
     session_start();
-    $_SESSION['nombre'] = $usuario;
-
 }
+
+
 include 'conexionHostinger.php';
  error_reporting(0);
 //  $id = $_POST['id'];
