@@ -1,20 +1,30 @@
-<html>
-<head>
     <?php
-$_SESSION["userId"] = "24";
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+$id = $_SESSION['IDPasajero'];
+
 $conn = mysqli_connect("localhost","root","root");
-mysqli_select_db("ufuber",$conn);
+mysqli_select_db($conn,"ufuber");
 if(count($_POST)>0) {
-$result = mysqli_query("SELECT *from usuario_pasajero WHERE nombre='" . $_SESSION["userId"] . "'");
+$result = mysqli_query("SELECT * from pasajero WHERE id_pasajero=$id");
+
 $row=mysqli_fetch_array($result);
+
 if($_POST["currentPassword"] == $row["password"]) {
-mysqli_query("UPDATE users set password='" . $_POST["newPassword"] . "' WHERE userId='" . $_SESSION["userId"] . "'");
+mysqli_query("UPDATE users set password='" . $_POST["newPassword"] . "' WHERE id_pasajero =$id");
 $message = "Password Changed";
 } else $message = "Current Password is not correct";
 }
 ?>
+<html>
+<head>
 <title>Change Password</title>
 <link rel="stylesheet" type="text/css" href="styles.css" />
+<link rel ="stylesheet" href="css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
 </head>
 <body>
 <form name="frmChange" method="post" action="" onSubmit="return validatePassword()">

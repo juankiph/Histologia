@@ -1,5 +1,6 @@
 <?php
-include './conexionHostinger.php';
+include './conexion.php';
+error_reporting(0);
 //  $id = $_POST['id'];
 //  $usuario = $_POST['usuario'];
   $nombre = $_POST['nombre'];
@@ -37,7 +38,7 @@ $cabecera = "From: UFUber <contactoufuber@gmail.com>\r\n";
 $cabecera .="Content-Type:text/html;charset=utf-8\r\n";
 
             
-if(mail("$email","Correo de prueba",$mensaje,$cabecera)){
+if(mail("$email","Bienvenido a UFUber",$mensaje,$cabecera)){
     echo "<h1><p align='center'>Correo enviado correctamente</p></h1>";
 }
 else{
@@ -56,6 +57,7 @@ else{
         
         <title>Registro UFUber</title>
         <link rel ="stylesheet" href="css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel ="stylesheet" href="css/general.css">
         <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
         <style>  
@@ -118,7 +120,7 @@ else{
 //              // usuario_tipo : _usuario_tipo
 //           });
 //       }
-</script>>
+</script>
 
 
 

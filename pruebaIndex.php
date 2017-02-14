@@ -1,27 +1,32 @@
 <?php
-
-if (!isset($_SESSION)) {
-    session_start();
-    
-}           
-            if (isset($_SESSION['nombre']) and isset($_SESSION['password'])) {
-            $nombre = $_SESSION['nombre'];
-            $password = $_SESSION['password'];
+    //Si no hay sesion la inicio
+    if(!isset($_SESSION)){
+        session_start();
+        echo 'Sesion empezada';
+    }
+    //Si no existen las variables de sesion, borro las cookies
+    if(!isset($_SESSION['Usuario'])){
+        unset($_COOKIE['Galleta']);
+        unset($_COOKIE['Password']);
+        unset($_COOKIE['Tipo']);
+        echo 'Cookies fuera';
+    }
+    if(isset($_COOKIE['Galleta']) and isset($_COOKIE['Pass'])){
+        if($_COOKIE['Tipo'] == 0){
             require './sesionIniciada.php';
-            
-//            echo  "<script>
-//                document.getElementById('usuario_nombre').value = '$nombre';
-//                 document.getElementById('usuario_clave').value = '$password';
-//                document.getElementById('remember').checked = true;
-//                </script>";
-                    
+            echo 'Estás dentro';
         }
         else{
-            require './index.php';
+            require 'http://www.as.com';
+            echo 'Sesion empezada';
         }
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    }   
+    else {
+        require './index.php';
+        unset($_COOKIE['Galleta']);
+        unset($_COOKIE['Password']);
+        unset($_COOKIE['Tipo']);
+        echo 'ELIMINADO';
+    }
+    
 ?>
