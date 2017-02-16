@@ -1,5 +1,5 @@
-<?php
- 
+<?PHP
+
 include 'conexion.php';
  error_reporting(0);
 //  $id = $_POST['id'];
@@ -38,7 +38,6 @@ if (mysqli_query($conn, $sql)) {
 <head>
 <title>Dar de alta</title>
         <meta charset="UTF-8">
-        
         <title>Registro UFUber</title>
         <link rel ="stylesheet" href="css/bootstrap.min.css">
         <link rel ="stylesheet" href="css/general.css">

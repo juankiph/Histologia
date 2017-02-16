@@ -168,9 +168,10 @@ if(!$_POST['submit']){
              <div class="col-lg-2" style="text-align: center"></div>
 
         </div>
-        </div>
-            
 </body>
+</html>
+
+          
 
 <script>
     function volver() {
