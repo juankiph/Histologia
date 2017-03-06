@@ -9,6 +9,7 @@ $mysqli = conectaBBDD();
 error_reporting(0);
 if (!$_POST['submit']) {
     
+    
 }
 ?>
 
