@@ -217,77 +217,105 @@ if (!$_POST['submit']) {
         </div>
         <div class="col-lg-2"></div>
     </div>
-
-    <div class="row">
-        <div class="col-lg-2" style="text-align: center"></div>
-        <div class=" col-lg-8 table-responsive margenContainer" >
-
-            <div style="center">
-                <input id="pac-input" class="controls" type="text" placeholder="Introduzca Un Origen">
-                <input id="pac-input2" class="controls" type="text" placeholder="Introduzca Un Destino">
-                <input size="18" type="text" value="2017-06-15 14:45" readonly class="form_datetime">
-
-                <div class="row">
-                    <div class="col-sm-3">
-                        <select class="form-control">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="button" class="btn btn-primary">Publica tu viaje</button>
+    <br>
+    <div id="datosViaje"  style="background-color: rgba(51,153,153,0.6); border-radius: 20px; color: white; font-weight: bold;">
+        <br>
+        <div class="row">
+            <div class=" col-lg-1"></div>
+            <div class=" col-lg-5">
+                <p>Introduzca un origen</p>
+                <input id="pac-input" class="controls" type="text" placeholder="Introduzca Un Origen" style="margin: 0px; color: black">
+                <br>
+                <br>
+                <p>Introduzca un destino</p>
+                <input id="pac-input2" class="controls" type="text" placeholder="Introduzca Un Destino" style="margin: 0px;color: black">
             </div>
+            <div class=" col-lg-5">
+                <p>Introduzca una fecha de viaje</p>
+                <input size="18" type="text" value="2017-06-15 14:45" class="form_datetime" style="width: 100% ;color:black">     
+                <br>
+                <br>
+                <p>Nº plazas libres</p>
+                <select class="form-control" style="width: 100%">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>  
+            </div>
+            <div class=" col-lg-1"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class=" col-lg-1"></div>
+            <div class=" col-lg-10">
+                <button class="btn btn-block btn-primary" style="margin: 0px;">Registra tu viaje</button>  
+            </div>
+            <div class=" col-lg-1"></div>
+        </div>
+        <br>
+    </div>
+    <br>
             <?php
-            $consulta_viajes = $mysqli->query("SELECT usuario.foto, viaje.* from usuario, viaje where usuario.id_usuario= viaje.id_usuario");
+            $consulta_viajes = $mysqli->query("SELECT usuario.foto, usuario.nombre , coche.modelo, coche.marca , viaje.* from usuario, coche, viaje where usuario.id_usuario= viaje.id_usuario");
             $num_viajes = $consulta_viajes->num_rows;
             ?>
-            <table class="table text-center table-striped table-hover table-bordered" id="tablaViajes">
-                <thead>
-                    <tr class="success">
-                    <th>foto</th>
-                    <th>id viaje</th>
-                    <th>id conductor</th>
-                    <th>id coche</th>
-                    <th>hora</th>
-                    <th>origen</th>
-                    <th>destino </th>
-                    <th>eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-            <?php
-            for ($i = 0; $i < $num_viajes; $i++) {
-                $fila = $consulta_viajes->fetch_array();
-                $foto = $fila['foto'];
-                $id_viaje = $fila['id_viaje'];
-                $id_usuario = $fila['id_usuario'];
-                $id_coche = $fila['id_coche'];
-                $hora = $fila['hora'];
-                $origen = $fila['origen'];
-                $destino = $fila['destino'];
-                echo '<tr class="warning" id="boton_' . $i . '" >';
-                echo '<td><a href="index.php"><img src="imagenes/' . $foto . '.jpg" style="width:50px;"/></a></td>';
-                echo '<td>' . $id_viaje . '</td>';
-                echo '<td>' . $id_conductor . '</td>';
-                echo '<td>' . $id_coche . '</td>';
-                echo '<td>' . $hora . '</td>';
-                echo '<td>' . $origen . '</td>';
-                echo '<td>' . $destino . '</td>';
-                echo '<td><button  onClick="borra(' . $i . ',' . $id_viaje . ');" class="btn btn-danger btn-xs"> <i class="glyphicon glyphicon-trash" ></i></button></td>';
-                echo '</tr>';
-            }
-            ?>
-                </tbody>
-            </table>
+    <div id="divTabla" style="background-color: rgba(51,153,153,0.6); border-radius: 20px;">
+        <br>
+        <div class="row">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>                
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                <br>
+                <table class="table text-center table-striped table-responsive table-hover table-bordered" id="tablaViajes">
+                    <thead>
+                        <tr class="success">
+                        <th>foto</th>
+                        <th>nombre</th>
+                        <th>marca</th>
+                        <th>modelo</th>
+                        <th>hora</th>
+                        <th>origen</th>
+                        <th>destino </th>
+                        <th>eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                <?php
+                for ($i = 0; $i < $num_viajes; $i++) {
+                    $fila = $consulta_viajes->fetch_array();
+                    $foto = $fila['foto'];
+                    $nombre = $fila['nombre'];
+                    $marca = $fila['marca'];
+                    $modelo = $fila['modelo'];
+                    $fechaHora = $fila['fechaHora'];
+                    $origen = $fila['origen'];
+                    $destino = $fila['destino'];
+                    echo '<tr class="warning" id="boton_' . $i . '" >';
+                    echo '<td><a href="index.php"><img src="imagenes/' . $foto . '.jpg" style="width:50px;"/></a></td>';
+                    echo '<td>' . $nombre . '</td>';
+                    echo '<td>' . $marca . '</td>';
+                    echo '<td>' . $modelo . '</td>';
+                    echo '<td>' . $hora . '</td>';
+                    echo '<td>' . $origen . '</td>';
+                    echo '<td>' . $destino . '</td>';
+                    echo '<td><button  onClick="borra(' . $i . ',' . $id_viaje . ');" class="btn btn-danger btn-xs"> <i class="glyphicon glyphicon-trash" ></i></button></td>';
+                    echo '</tr>';
+                }
+                ?>
+                    </tbody>
+                </table>
+                <br>
+            </div>                
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
         </div>
+        <br>
     </div>
+    <br>
+    <br>
 </div>
-
 
 <script src="js/jquery-3.1.0.min.js"></script>
 <script src="js/bootstrap-datetimepicker.min.js"></script>
@@ -299,6 +327,23 @@ if (!$_POST['submit']) {
            
     
     $(document).ready(function(){
+        $('#tablaViajes').DataTable({
+            "pagingType": "full_numbers",
+            "bFilter": false,
+            "aLengthMenu": [[5, 10, 25, 100, -1], [5, 10, 25, 100, "Todos"]],
+            "oLanguage": {
+                "sLengthMenu": "Mostrar _MENU_ filas",
+                "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ filas",
+                "oPaginate": {
+                    "sFirst": "Primera", // This is the link to the first page
+                    "sPrevious": "Anterior", // This is the link to the previous page
+                    "sNext": "Siguiente", // This is the link to the next page
+                    "sLast": "Última" // This is the link to the last page
+                }
+            }
+        });
+            
+        
     // convert selects already on the page at dom load
         $('select.form-control').combobox();
         $('#it').click(function(e){
