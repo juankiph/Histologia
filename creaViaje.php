@@ -126,31 +126,42 @@ div.jtable-main-container {
 #target {
         width: 345px;
       }
+      .ui-spinner:hover,  .ui_tpicker_timezone:hover > select {
+  border: 1px solid #2196F3
+}
+
+
     </style>
     <title>comparte coche</title>
 
   </head>
   <body>
-      <div class="container" id="inicio">
+    <div class="container" id="inicio">
         <div class="row">
             <div class="col-lg-2" style="margin-top: 3%; margin-left: 2%;">
                 <button class="btn btn-primary btn-lg text-center hoverVolver" onclick="volver();">Volver</button>
             </div>
               <div class="col-lg-8">
-                <h2 class="letraEquipo text-center ">Comparte Coche</h2>
+                <h2 class="letraEquipo text-center ">VIAJES DISPONIBLES</h2>
             </div>
             <div class="col-lg-2"></div>
             </div>
-          <div style="center">
+        </div>
+        <div class="row">
+            <div class="col-lg-2" style="text-align: center"></div>
+                <div class=" col-lg-8 table-responsive margenContainer" >
+                <div class="divLogin divScroll">
+                         <div style="center">
     <input id="pac-input" class="controls" type="text" placeholder="Introduzca Un Origen">
     <input id="pac-input2" class="controls" type="text" placeholder="Introduzca Un Destino">
-    <button class="btn btn-success bg-success btn-primary btn-lg text-center glyphicon" onclick="volver();"></button>
-   </div>
+    
                 </div>
-            
-             
+            </div>
+             <div class="col-lg-2" style="text-align: center"></div>
+<button class="btn btn-link bg-success btn-primary btn-lg text-center glyphicon" onclick="buscar();">Buscar</button>
+        </div>
 
-        
+  
 
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASzFVkS3kyIUv4zECI7CCNkr7h861vbyc&libraries=places&callback=initAutocomplete"
          async defer></script>
@@ -230,6 +241,9 @@ function initAutocomplete() {
 function volver() {
         $('#inicio').load('index.php');
     } 
-
+function buscar() {
+        $('#inicio').load('viajes.php');
+    } 
+    
     </script>
 </html>

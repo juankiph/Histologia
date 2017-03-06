@@ -2,7 +2,7 @@
 <?php
 
 $servidor = 'localhost';
-$bd = 'ufuber';
+$bd = 'UFuver';
 $usuario_mysql = 'root';
 $clave_mysql = 'root';
 ?>
